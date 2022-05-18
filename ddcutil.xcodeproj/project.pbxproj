@@ -32,6 +32,8 @@
 		B5C42F24283512D900DF263D /* ddcutil-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ddcutil-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5C42F272835137000DF263D /* ExternalDisplayDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplayDataService.swift; sourceTree = "<group>"; };
 		B5C42F29283513A700DF263D /* EDID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDID.swift; sourceTree = "<group>"; };
+		B5C42F2B2835143F00DF263D /* VESA-EDDC-1.2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "VESA-EDDC-1.2.pdf"; sourceTree = "<group>"; };
+		B5C42F2C2835143F00DF263D /* VESA-EEDID-A2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "VESA-EEDID-A2.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,8 @@
 		B5C42F0B283512AC00DF263D = {
 			isa = PBXGroup;
 			children = (
+				B5C42F2B2835143F00DF263D /* VESA-EDDC-1.2.pdf */,
+				B5C42F2C2835143F00DF263D /* VESA-EEDID-A2.pdf */,
 				B5C42F16283512AC00DF263D /* ddcutil */,
 				B5C42F15283512AC00DF263D /* Products */,
 			);
