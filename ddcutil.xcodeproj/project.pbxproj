@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5C42F18283512AC00DF263D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C42F17283512AC00DF263D /* main.swift */; };
+		B5C42F18283512AC00DF263D /* DDCUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C42F17283512AC00DF263D /* DDCUtil.swift */; };
+		B5C42F20283512B900DF263D /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B5C42F1F283512B900DF263D /* ArgumentParser */; };
+		B5C42F23283512C100DF263D /* BinaryCodable in Frameworks */ = {isa = PBXBuildFile; productRef = B5C42F22283512C100DF263D /* BinaryCodable */; };
+		B5C42F282835137000DF263D /* ExternalDisplayDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C42F272835137000DF263D /* ExternalDisplayDataService.swift */; };
+		B5C42F2A283513A700DF263D /* EDID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C42F29283513A700DF263D /* EDID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +28,10 @@
 
 /* Begin PBXFileReference section */
 		B5C42F14283512AC00DF263D /* ddcutil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ddcutil; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C42F17283512AC00DF263D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B5C42F17283512AC00DF263D /* DDCUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDCUtil.swift; sourceTree = "<group>"; };
+		B5C42F24283512D900DF263D /* ddcutil-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ddcutil-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5C42F272835137000DF263D /* ExternalDisplayDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplayDataService.swift; sourceTree = "<group>"; };
+		B5C42F29283513A700DF263D /* EDID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C42F23283512C100DF263D /* BinaryCodable in Frameworks */,
+				B5C42F20283512B900DF263D /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +66,10 @@
 		B5C42F16283512AC00DF263D /* ddcutil */ = {
 			isa = PBXGroup;
 			children = (
-				B5C42F17283512AC00DF263D /* main.swift */,
+				B5C42F17283512AC00DF263D /* DDCUtil.swift */,
+				B5C42F24283512D900DF263D /* ddcutil-Bridging-Header.h */,
+				B5C42F272835137000DF263D /* ExternalDisplayDataService.swift */,
+				B5C42F29283513A700DF263D /* EDID.swift */,
 			);
 			path = ddcutil;
 			sourceTree = "<group>";
@@ -78,6 +90,10 @@
 			dependencies = (
 			);
 			name = ddcutil;
+			packageProductDependencies = (
+				B5C42F1F283512B900DF263D /* ArgumentParser */,
+				B5C42F22283512C100DF263D /* BinaryCodable */,
+			);
 			productName = ddcutil;
 			productReference = B5C42F14283512AC00DF263D /* ddcutil */;
 			productType = "com.apple.product-type.tool";
@@ -94,6 +110,7 @@
 				TargetAttributes = {
 					B5C42F13283512AC00DF263D = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -106,6 +123,10 @@
 				Base,
 			);
 			mainGroup = B5C42F0B283512AC00DF263D;
+			packageReferences = (
+				B5C42F1E283512B900DF263D /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				B5C42F21283512C100DF263D /* XCRemoteSwiftPackageReference "BinaryCodable" */,
+			);
 			productRefGroup = B5C42F15283512AC00DF263D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C42F18283512AC00DF263D /* main.swift in Sources */,
+				B5C42F282835137000DF263D /* ExternalDisplayDataService.swift in Sources */,
+				B5C42F18283512AC00DF263D /* DDCUtil.swift in Sources */,
+				B5C42F2A283513A700DF263D /* EDID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +266,18 @@
 		B5C42F1C283512AC00DF263D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZATL9Q6NDL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ddcutil/ddcutil-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,10 +285,17 @@
 		B5C42F1D283512AC00DF263D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZATL9Q6NDL;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ddcutil/ddcutil-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -284,6 +322,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5C42F1E283512B900DF263D /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		B5C42F21283512C100DF263D /* XCRemoteSwiftPackageReference "BinaryCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jverkoey/BinaryCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5C42F1F283512B900DF263D /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5C42F1E283512B900DF263D /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		B5C42F22283512C100DF263D /* BinaryCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5C42F21283512C100DF263D /* XCRemoteSwiftPackageReference "BinaryCodable" */;
+			productName = BinaryCodable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5C42F0C283512AC00DF263D /* Project object */;
 }
